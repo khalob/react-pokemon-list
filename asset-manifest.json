@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/react-pokemon-list/static/css/main.7ae77ed1.chunk.css",
-    "main.js": "/react-pokemon-list/static/js/main.65a2e1fb.chunk.js",
-    "main.js.map": "/react-pokemon-list/static/js/main.65a2e1fb.chunk.js.map",
-    "runtime-main.js": "/react-pokemon-list/static/js/runtime-main.3aa656c6.js",
-    "runtime-main.js.map": "/react-pokemon-list/static/js/runtime-main.3aa656c6.js.map",
-    "static/js/2.f7a68270.chunk.js": "/react-pokemon-list/static/js/2.f7a68270.chunk.js",
-    "static/js/2.f7a68270.chunk.js.map": "/react-pokemon-list/static/js/2.f7a68270.chunk.js.map",
-    "index.html": "/react-pokemon-list/index.html",
-    "precache-manifest.9928d6631576995a024227ef8dcf28ca.js": "/react-pokemon-list/precache-manifest.9928d6631576995a024227ef8dcf28ca.js",
-    "service-worker.js": "/react-pokemon-list/service-worker.js",
-    "static/css/main.7ae77ed1.chunk.css.map": "/react-pokemon-list/static/css/main.7ae77ed1.chunk.css.map",
-    "static/js/2.f7a68270.chunk.js.LICENSE.txt": "/react-pokemon-list/static/js/2.f7a68270.chunk.js.LICENSE.txt",
-    "static/media/local.scss": "/react-pokemon-list/static/media/water-bg.a50b9b3e.jpg",
-    "static/media/types-key.png": "/react-pokemon-list/static/media/types-key.b88d7dd8.png"
+    "main.css": "/projects/webdev/react/pokemon-list/static/css/main.136aa271.chunk.css",
+    "main.js": "/projects/webdev/react/pokemon-list/static/js/main.dd608cc0.chunk.js",
+    "main.js.map": "/projects/webdev/react/pokemon-list/static/js/main.dd608cc0.chunk.js.map",
+    "runtime-main.js": "/projects/webdev/react/pokemon-list/static/js/runtime-main.9c1e36d9.js",
+    "runtime-main.js.map": "/projects/webdev/react/pokemon-list/static/js/runtime-main.9c1e36d9.js.map",
+    "static/js/2.f7a68270.chunk.js": "/projects/webdev/react/pokemon-list/static/js/2.f7a68270.chunk.js",
+    "static/js/2.f7a68270.chunk.js.map": "/projects/webdev/react/pokemon-list/static/js/2.f7a68270.chunk.js.map",
+    "index.html": "/projects/webdev/react/pokemon-list/index.html",
+    "precache-manifest.c7e2a186dbde4c5af2549c61e574e2b7.js": "/projects/webdev/react/pokemon-list/precache-manifest.c7e2a186dbde4c5af2549c61e574e2b7.js",
+    "service-worker.js": "/projects/webdev/react/pokemon-list/service-worker.js",
+    "static/css/main.136aa271.chunk.css.map": "/projects/webdev/react/pokemon-list/static/css/main.136aa271.chunk.css.map",
+    "static/js/2.f7a68270.chunk.js.LICENSE.txt": "/projects/webdev/react/pokemon-list/static/js/2.f7a68270.chunk.js.LICENSE.txt",
+    "static/media/local.scss": "/projects/webdev/react/pokemon-list/static/media/water-bg.a50b9b3e.jpg",
+    "static/media/types-key.png": "/projects/webdev/react/pokemon-list/static/media/types-key.b88d7dd8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.3aa656c6.js",
+    "static/js/runtime-main.9c1e36d9.js",
     "static/js/2.f7a68270.chunk.js",
-    "static/css/main.7ae77ed1.chunk.css",
-    "static/js/main.65a2e1fb.chunk.js"
+    "static/css/main.136aa271.chunk.css",
+    "static/js/main.dd608cc0.chunk.js"
   ]
 }
