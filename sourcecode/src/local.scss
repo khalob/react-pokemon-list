@@ -1,0 +1,341 @@
+$energy-types: ('normal': (energyPos: '100% 50%',
+        color1: #d9d0bf,
+        bg: "url('./imgs/normal-bg.png') no-repeat center",
+        bgSize: 'cover'
+    ),
+    'flying': (energyPos: '60% 100%',
+        color1: #ccc7c7,
+        bg: "url('./imgs/flying-bg.jpg') no-repeat center -200px",
+        bgSize: 'auto'
+    ),
+    'poison': (energyPos: '20% 100%',
+        color1: purple),
+    'grass': (energyPos: '40% 0',
+        color1: green,
+        bg: "url('./imgs/grass-bg.jpg') no-repeat center",
+        bgSize: 'cover'
+    ),
+    'bug': (energyPos: '40% 100%',
+        color1: green),
+    'water': (energyPos: '0 0',
+        color1: #0e7dbd,
+        bg: "url('./imgs/water-bg.jpg') no-repeat center",
+        bgSize: 'cover'
+    ),
+    'ice': (energyPos: '0 50%',
+        color1: #0e7dbd,
+        bg: "url('./imgs/water-bg.jpg') no-repeat center",
+        bgSize: 'cover'
+    ),
+    'fire': (energyPos: '20% 0',
+        color1: #e73931,
+        bg: "url('./imgs/fire-bg.png') no-repeat center",
+        bgSize: 'cover'
+    ),
+    'dragon': (energyPos: '40% 50%',
+        color1: #e73931),
+    'steel': (energyPos: '100% 0',
+        color1: gray),
+    'rock': (energyPos: '80% 0',
+        color1: gray),
+    'ground': (energyPos: '60% 0',
+        color1: gray),
+    'psychic': (energyPos: '80% 50%',
+        color1: purple),
+    'ghost': (energyPos: '60% 50%',
+        color1: gray),
+    'dark': (energyPos: '80% 100%',
+        color1: black),
+    'electric': (energyPos: '20% 50%',
+        color1: yellow),
+    'fighting': (energyPos: '0 100%',
+        color1: red),
+    'fairy': (energyPos: '100% 100%',
+        color1: #e78181),
+);
+
+@mixin energy-img($bg-position) {
+    content: '';
+    background: url('./imgs/types.png') no-repeat #{$bg-position};
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    background-size: 600%;
+    position: relative;
+    display: inline-block;
+}
+
+@mixin hero-bg($bg, $bgSize, $color1) {
+    background: #{$bg};
+    background-size: #{$bgSize};
+    border-image: linear-gradient(to right, #e9d7b3, #ddc967, #ebda94, #987f2b, #e9d7b3, #ddc967, #ebda94) 1;
+    border-image: conic-gradient(#e9d7b3, #ddc967, #ebda94, #987f2b, #e9d7b3, #ddc967, #ebda94) 1;
+}
+
+@each $name in map-keys($energy-types) {
+    $type: map-get($energy-types, $name);
+    $bg: if(map-has-key($type, 'bg'), map-get($type, 'bg'), "url('./imgs/normal-bg.png') no-repeat center");
+    $bgSize: if(map-has-key($type, 'bgSize'), map-get($type, 'bgSize'), '100% 100%');
+    $color1: map-get($type, 'color1');
+    $color2: lighten($color1, 10%);
+
+    .#{$name}-type::before {
+        @include energy-img(map-get($type, 'energyPos'));
+    }
+
+    .card.#{$name} {
+        .hero-bg {
+            @include hero-bg($bg, $bgSize, $color1);
+        }
+
+        .card-body {
+            background-image: linear-gradient(8deg, $color2, transparent, $color2, transparent, $color2),
+                linear-gradient(120deg, $color1, transparent, $color1, transparent, $color1),
+                linear-gradient($color1, $color2);
+        }
+    }
+}
+
+.hero-bg {
+    display: flex;
+    width: 85%;
+    background: url(/static/media/normal-bg.7c575b28.png) no-repeat center;
+    border-width: 10px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-image: linear-gradient(to right, #e9d7b3, #ddc967, #ebda94, #987f2b, #e9d7b3, #ddc967, #ebda94) 1;
+    border-image: conic-gradient(#e9d7b3, #ddc967, #ebda94, #987f2b, #e9d7b3, #ddc967, #ebda94) 1;
+    background-size: 100% 100%;
+    box-shadow: 7px 7px 20px black;
+    position: relative;
+}
+.hero-image {
+    width: 48%;
+    padding: 10% 0;
+    margin: auto;
+}
+
+.pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-basis: 25%;
+    flex-grow: 1;
+    margin: 20px 0;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+    user-select: none;
+    min-width: 350px;
+    max-width: 90%;
+
+    &:active {
+        transform: rotateY(180deg);
+    }
+
+    .card-title,
+    .move-name {
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        width: 88%;
+        margin: auto;
+        padding: 7px 7px 0 7px;
+
+        .card-title {
+            font-size: 125%;
+        }
+
+        #type-list span:last-child::before {
+            margin: 0;
+        }
+    }
+
+    .pokestats {
+        font-size: 50%;
+        display: block;
+        position: relative;
+        background-image: linear-gradient(to right, #987f2b, #ddc967, #ebda94, #e9d7b3, #ddc967, #ebda94, #987f2b);
+        border-image: linear-gradient(to right, #e9d7b3, #ddc967, #ebda94, #987f2b, #e9d7b3, #ddc967, #ebda94) 1;
+        border-image: conic-gradient(#715d1a, #ddc967, #ebda94) 1;
+        border-width: 0px 4px;
+        border-style: solid;
+        margin-top: 2.5%;
+        width: 70%;
+    }
+
+    .card-body {
+        border: .65em solid #e7c41d;
+        border-radius: 10px;
+        margin: 0 25px;
+        height: 100%;
+        color: black;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .card-back {
+        background: url('./imgs/cardback.png') no-repeat top;
+        transform: rotateY(180deg);
+        height: 100%;
+        width: calc(100% - 50px);
+        margin: 0 25px;
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0;
+        border-radius: 10px;
+        backface-visibility: hidden;
+    }
+
+    .type-img {
+        background-image: radial-gradient(circle, black, transparent);
+        border-radius: 100%;
+        height: 1.4em;
+        width: 1.4em;
+        display: inline-block;
+        margin-right: 5px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .pokenumber {
+        position: absolute;
+        bottom: .5%;
+        right: 2%;
+        font-size: 10px;
+        font-weight: 600;
+
+        &::after {
+            content: '';
+            display: inline-flex;
+            position: relative;
+            width: 8px;
+            height: 8px;
+            background-image: radial-gradient(black, transparent);
+            border-radius: 100%;
+            margin-left: 3px;
+        }
+    }
+}
+
+.move-list {
+    max-width: 80%;
+    margin: auto;
+    font-size: 66%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+
+    .move-container {
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+
+        &:first-child {
+            border-bottom: 1px solid black;
+            padding-bottom: 20px;
+        }
+
+        .move-description {
+            text-align: left;
+            padding-left: 2%;
+        }
+    }
+
+    .type-img {
+        margin-right: 10px;
+        vertical-align: middle;
+        height: 2em;
+        width: 2em;
+        min-width: 2em;
+    }
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.placeholder {
+    flex-basis: 25%;
+    display: flex;
+    height: 600px;
+    margin: 40px 0;
+
+    .spinner {
+        width: 50px;
+        height: 50px;
+
+        position: relative;
+        margin: auto;
+    }
+
+    .double-bounce1,
+    .double-bounce2 {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: white;
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+        animation: sk-bounce 2.0s infinite ease-in-out;
+    }
+
+    .double-bounce2 {
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+    }
+
+    @-webkit-keyframes sk-bounce {
+
+        0%,
+        100% {
+            -webkit-transform: scale(0.0)
+        }
+
+        50% {
+            -webkit-transform: scale(1.0)
+        }
+    }
+
+    @keyframes sk-bounce {
+
+        0%,
+        100% {
+            transform: scale(0.0);
+            -webkit-transform: scale(0.0);
+        }
+
+        50% {
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+        }
+    }
+}
+
+.types-key {
+    background: tan;
+    border-radius: 10px;
+    border: 15px solid saddlebrown;
+    margin-bottom: 50px;
+    min-width: 40%;
+    max-width: 290px;
+}
